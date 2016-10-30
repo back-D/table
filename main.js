@@ -57,12 +57,35 @@ function tableFillNeighbours () {
                 } catch (e) {
                     continue;
                 }
-                neighbourCell = tbdy.childNodes[j].childNodes[k];
-                if (neighbourCell && neighbourCell.innerHTML !== '5') {
+                // neighbourCell = tbdy.childNodes[j].childNodes[k];
+                if (neighbourCell && neighbourCell.innerHTML === '_') {
                     neighbourCell.innerHTML = '4';
                     neighbourCell.style.backgroundColor = 'yellow';
-                } else continue;
+                } else if (neighbourCell && neighbourCell.innerHTML === '4') {
+                    neighbourCell.innerHTML = '7';
+                    neighbourCell.style.backgroundColor = 'lightblue';
+                } else if (neighbourCell && neighbourCell.innerHTML === '5' && neighbourCell != thisCell) {
+                    tableAltFill(thisCell);
+                }
+                else continue;
             }
+        }
+    }
+}
+
+function tableAltFill (thisCell) {
+    for (let j = thisCell.parentNode.rowIndex - 1; j <= thisCell.parentNode.rowIndex + 1; j++) {
+        for (let k = thisCell.cellIndex - 1; k <= thisCell.cellIndex + 1; k++) {
+            try {
+                var neighbourCell = tbdy.childNodes[j].childNodes[k];
+            } catch (e) {
+                continue;
+            }
+            // neighbourCell = tbdy.childNodes[j].childNodes[k];
+            if (neighbourCell && neighbourCell.innerHTML !== '5') {
+                neighbourCell.innerHTML = '9';
+                neighbourCell.style.backgroundColor = 'green';
+            } else continue;
         }
     }
 }
@@ -80,6 +103,6 @@ btn.addEventListener("click", function (){
     columns = document.getElementById("columns").value;
     repeater = document.getElementById("repeater").value;
 
-    //document.form.reset();
     tableCreate();
+
 }, false);
