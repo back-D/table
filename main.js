@@ -1,4 +1,4 @@
-var rows, columns, repeater, tbdy;
+;var rows, columns, repeater, tbdy;
 
 function tableCreate () {
     var body = document.body;
@@ -103,6 +103,16 @@ btn.addEventListener("click", function (){
     columns = document.getElementById("columns").value;
     repeater = document.getElementById("repeater").value;
 
-    tableCreate();
+    if (repeater > rows * columns) {
+        alert("Количество заполненных клеток не может быть больше количества клеток!");
+        document.form.reset();
+    } else tableCreate();
 
+
+}, false);
+
+var clearBtn = document.getElementById("clear-btn");
+clearBtn.addEventListener("click", function () {
+    tableClear();
+    document.form.reset();
 }, false);
