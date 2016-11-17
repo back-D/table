@@ -6,13 +6,26 @@
 </head>
 <body>
 
-<form name="form">
+<form name="form" style="display: inline-block; vertical-align: top">
     <input type="text" placeholder="enter number of rows" id="rows">
     <input type="text" placeholder="enter number of columns" id="columns">
     <input type="text" placeholder="enter repeater" id="repeater">
     <input type="button" value="click me!" id="btn">
     <input type="button" value="clear" id="clear-btn">
 </form>
+
+<div style="display: inline-block; margin-left: 60px">
+    <p>Задача:</p>
+    <ol style="margin: 0; padding: 0">
+        <li>Динамически создать таблицу размером NxM</li>
+        <li>Заполнить L ячеек таблицы цифрой 5 случайным образом</li>
+        <li>Вокруг каждой ячейки 5 заполнить ячейки цифрой 4</li>
+        <li>Если 4 накладываются друг на друга - заменить их на 7</li>
+        <li>Если 5 находятся в соседних ячейках - соседние ячейки заполнить цифрой 9</li>
+    </ol>
+</div>
+
+
 
 <script src="main.js"></script>
 </body>
